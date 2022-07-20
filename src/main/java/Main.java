@@ -6,11 +6,11 @@ public class Main {
 	
 	// fix the operator code
     public static UnaryOperator<String> operator = str -> {
-        return PREFIX + str.trim() + SUFFIX;
+        return PREFIX + str.replaceAll("\\s","") + SUFFIX;
     };
 
     public static void main(String[] args) {
-        String res = operator.apply("  hello"); 
+        String res = operator.apply("  hel      lo");
         System.out.println(res); // __prefix__hello__suffix__
     }
 }
